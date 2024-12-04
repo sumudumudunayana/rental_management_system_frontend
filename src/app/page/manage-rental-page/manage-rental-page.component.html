@@ -20,6 +20,9 @@
             <th>Return Date</th>
             <th>Due Date</th>
             <th>Total Cost</th>
+            <th>Customer Name</th>
+            <th>Item Id</th>
+            <th>Item Name</th>
             <th>Delete</th>
              <th>Update</th>
           </tr>
@@ -31,6 +34,9 @@
             <td>{{ rental.returnDate }}</td>
             <td>{{ rental.dueDate }}</td>
             <td>{{ rental.totalCost }}</td>
+            <td>{{ rental.customerName }}</td>
+            <td>{{ rental.itemId }}</td>
+            <td>{{ rental.itemName }}</td>
             <td>
               <button (click)="deleteBook(rental.rentId)" class="delete-button">Delete</button>
             </td>

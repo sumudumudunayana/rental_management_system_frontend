@@ -1,0 +1,12 @@
+<div id="bill" *ngIf="showBill" style="border: 1px solid black; padding: 20px; width: 300px;">
+    <h2>Rental Bill</h2>
+    <p><strong>Customer Name:</strong> {{ rental.customerName }}</p>
+    <p><strong>Item Name:</strong> {{ rental.itemName }}</p>
+    <p><strong>Total Cost:</strong> ${{ rental.totalCost }}</p>
+    <hr />
+    <p>Thank you for your rental!</p>
+  </div>
+  
+  <button (click)="generateBill()">Generate Bill</button>
+  <button *ngIf="showBill" (click)="printBill()">Print Bill</button>
+  

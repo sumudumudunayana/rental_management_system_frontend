@@ -5,7 +5,7 @@
         <div class="form-group">
           <label for="title">Rental Date</label>
           <input
-            type="text"
+            type="date"
             id="bookName"
             name="bookName"
             [(ngModel)]="rental.rentalDate"
@@ -17,7 +17,7 @@
         <div class="form-group">
           <label for="category">Return Date</label>
           <input
-            type="text"
+            type="date"
             id="bookCategory"
             name="bookCategory"
             [(ngModel)]="rental.returnDate"
@@ -29,7 +29,7 @@
         <div class="form-group">
           <label for="author">Due Date</label>
           <input
-            type="text"
+            type="date"
             id="bookAuthor"
             name="bookAuthor"
             [(ngModel)]="rental.dueDate"
@@ -49,6 +49,49 @@
               placeholder="Enter total cost"
             />
           </div>
+
+          <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <select
+              id="customerName"
+              name="customerName"
+              [(ngModel)]="rental.customerName"
+              required
+            >
+              <option *ngFor="let customer of customers" [value]="customer.customerName">
+                {{ customer.customerName }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="itemId">Item Id</label>
+            <select
+              id="itemId"
+              name="itemId"
+              [(ngModel)]="rental.itemId"
+              required
+            >
+              <option *ngFor="let item of items" [value]="item.itemId">
+                {{ item.itemId }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <select
+              id="itemName"
+              name="itemName"
+              [(ngModel)]="rental.itemName"
+              required
+            >
+              <option *ngFor="let item of items" [value]="item.itemName">
+                {{ item.itemName }}
+              </option>
+            </select>
+          </div>
+          
   
         <button
           class="button2"
