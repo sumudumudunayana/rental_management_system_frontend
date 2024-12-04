@@ -1,1 +1,62 @@
-<p>add-rental-page works!</p>
+<body class="background">
+    <div class="add-book-container">
+      <h2>Add a New Rental</h2>
+      <form #bookForm="ngForm">
+        <div class="form-group">
+          <label for="title">Rental Date</label>
+          <input
+            type="text"
+            id="bookName"
+            name="bookName"
+            [(ngModel)]="rental.rentalDate"
+            required
+            placeholder="Enter item name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="category">Return Date</label>
+          <input
+            type="text"
+            id="bookCategory"
+            name="bookCategory"
+            [(ngModel)]="rental.returnDate"
+            required
+            placeholder="Enter return date"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="author">Due Date</label>
+          <input
+            type="text"
+            id="bookAuthor"
+            name="bookAuthor"
+            [(ngModel)]="rental.dueDate"
+            required
+            placeholder="Enter due date"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="author">Total cost</label>
+            <input
+              type="text"
+              id="bookAuthor"
+              name="bookAuthor"
+              [(ngModel)]="rental.totalCost"
+              required
+              placeholder="Enter total cost"
+            />
+          </div>
+  
+        <button
+          class="button2"
+          [disabled]="bookForm.invalid"
+          (click)="onSubmit()"
+        >
+          Add Rental
+        </button>
+      </form>
+    </div>
+  </body>
