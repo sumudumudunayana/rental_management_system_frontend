@@ -1,1 +1,78 @@
-<p>manage-item-page works!</p>
+<body class="background">
+    <div class="manage-book-container">
+      <h2>Manage Items</h2>
+      
+      <div class="search">
+        <input
+        placeholder="Search By Id..."
+        type="text"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="searchBook(searchQuery)" />
+          <button type="submit" (click)="searchBook(searchQuery)">Search</button>
+        </div>
+      
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Availability</th>
+            <th>Fine Per Day</th>
+            <th>Rental Per Day</th>
+            <th>Delete</th>
+             <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of itemList; index as i">
+            <td>{{ item.itemId }}</td>
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.availability }}</td>
+            <td>{{ item.finePerDay }}</td>
+            <td>{{ item.rentalPerDay }}</td>
+            <td>
+              <button (click)="deleteBook(item.itemId)" class="delete-button">Delete</button>
+            </td>
+            <td>
+              <button (click)="updateBook(item)" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Availability :</label>
+              <input type="text" class="form-control" [(ngModel)]="itemTemp.availability"  id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">City:</label>
+              <input type="text" class="form-control" [(ngModel)]="itemTemp.city" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Fine Per Day :</label>
+              <input type="text" class="form-control" [(ngModel)]="itemTemp.finePerDay"  id="recipient-name">
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Rental Per Day :</label>
+                <input type="text" class="form-control" [(ngModel)]="itemTemp.rentalPerDay"  id="recipient-name">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveBook()" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </body>
+  

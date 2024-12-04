@@ -1,1 +1,78 @@
-<p>manage-rental-page works!</p>
+<body class="background">
+    <div class="manage-book-container">
+      <h2>Manage Rentals</h2>
+      
+      <div class="search">
+        <input
+        placeholder="Search By Id..."
+        type="text"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="searchBook(searchQuery)" />
+          <button type="submit" (click)="searchBook(searchQuery)">Search</button>
+        </div>
+      
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Rental Date</th>
+            <th>Return Date</th>
+            <th>Due Date</th>
+            <th>Total Cost</th>
+            <th>Delete</th>
+             <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rental of rentalList; index as i">
+            <td>{{ rental.rentId }}</td>
+            <td>{{ rental.rentalDate }}</td>
+            <td>{{ rental.returnDate }}</td>
+            <td>{{ rental.dueDate }}</td>
+            <td>{{ rental.totalCost }}</td>
+            <td>
+              <button (click)="deleteBook(rental.rentId)" class="delete-button">Delete</button>
+            </td>
+            <td>
+              <button (click)="updateBook(rental)" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Rental</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Availability :</label>
+              <input type="text" class="form-control" [(ngModel)]="rentalTemp.rentalDate"  id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">City:</label>
+              <input type="text" class="form-control" [(ngModel)]="rentalTemp.returnDate" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Fine Per Day :</label>
+              <input type="text" class="form-control" [(ngModel)]="rentalTemp.dueDate"  id="recipient-name">
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Rental Per Day :</label>
+                <input type="text" class="form-control" [(ngModel)]="rentalTemp.totalCost"  id="recipient-name">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveBook()" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </body>
+  
