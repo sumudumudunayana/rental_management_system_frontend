@@ -1,12 +1,10 @@
 <body class="background">
-    <div class="add-book-container">
+    <div class="add-customer-container">
       <h2>Add a New Customer</h2>
       <form #bookForm="ngForm">
         <div class="form-group">
           <label for="title">Name</label>
           <input
-            type="text"
-            id="bookName"
             name="bookName"
             [(ngModel)]="customer.customerName"
             required
@@ -17,8 +15,6 @@
         <div class="form-group">
           <label for="category">City</label>
           <input
-            type="text"
-            id="bookCategory"
             name="bookCategory"
             [(ngModel)]="customer.city"
             required
@@ -30,8 +26,6 @@
           <label for="author">Contact</label>
           <input
             type="text"
-            id="bookAuthor"
-            name="bookAuthor"
             [(ngModel)]="customer.contact"
             required
             placeholder="Enter contact number"

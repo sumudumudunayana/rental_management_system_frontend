@@ -29,7 +29,7 @@ export class ManageCustomerPageComponent {
     })
   }
 
-  deleteBook(customerId: number) {
+  deleteCustomer(customerId: number) {
     this.http.delete(`http://localhost:8080/customer/delete-by-id/${customerId}`).subscribe(data => {
       this.deleteSuccessAlert();
       this.loadTable();
@@ -37,19 +37,19 @@ export class ManageCustomerPageComponent {
   }
 
   public customerTemp:any = {}
-  updateBook(customer:any) {
+  updateCustomer(customer:any) {
     console.log(customer);
     this.customerTemp = customer;
   }
 
-  saveBook(){
+  saveCustomer(){
     this.http.put("http://localhost:8080/customer/update-customer",this.customerTemp).subscribe(data => {
       this.updateSuccessAlert();
       this.loadTable();
     })
   }
 
-  searchBook(searchQuery: string) {
+  searchCustomer(searchQuery: string) {
     if (!searchQuery || searchQuery.trim() === '') {
       this.loadTable();
       return;

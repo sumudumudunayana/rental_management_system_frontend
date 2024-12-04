@@ -29,7 +29,7 @@ export class ManageItemPageComponent {
     })
   }
 
-  deleteBook(itemId: number) {
+  deleteItem(itemId: number) {
     this.http.delete(`http://localhost:8080/hardwareItem/delete-by-id/${itemId}`).subscribe(data => {
       this.deleteSuccessAlert();
       this.loadTable();
@@ -37,19 +37,19 @@ export class ManageItemPageComponent {
   }
 
   public itemTemp:any = {}
-  updateBook(item:any) {
+  updateItem(item:any) {
     console.log(item);
     this.itemTemp = item;
   }
 
-  saveBook(){
+  saveItem(){
     this.http.put("http://localhost:8080/hardwareItem/update-hardwareItem",this.itemTemp).subscribe(data => {
       this.updateSuccessAlert();
       this.loadTable();
     })
   }
 
-  searchBook(searchQuery: string) {
+  searchItem(searchQuery: string) {
     if (!searchQuery || searchQuery.trim() === '') {
       this.loadTable();
       return;

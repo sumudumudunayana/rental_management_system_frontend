@@ -28,35 +28,32 @@ export class BillPageComponent {
   @Input() totalCost!: number;
 
   printBill() {
-    const billElement = document.querySelector('#bill') || document.querySelector('app-bill-page');
-    if (billElement) {
-      const printContents = billElement.innerHTML;
+    const billDiv = document.querySelector('.bill-container');
+    if (billDiv) {
+      const printContents = billDiv.innerHTML;
       const originalContents = document.body.innerHTML;
-  
+
       document.body.innerHTML = printContents;
       window.print();
       document.body.innerHTML = originalContents;
       window.location.reload();
-    } else {
-      console.error('Bill element not found for printing.');
     }
   }
 
   showBill = false;
 
-  generateBill() {
-    console.log('Rental Object:', this.rental); // Debug log
-  
-    if (!this.rental.customerName || !this.rental.itemName || !this.rental.totalCost) {
-      Swal.fire({
-        title: "Missing Information",
-        text: "Please provide all details before generating the bill.",
-        icon: "error",
-      });
-      return;
-    }
-  
-    this.showBill = true; // Display the bill component
+generateBill() {
+  if (!this.rental.customerName || !this.rental.itemName || !this.rental.totalCost) {
+    Swal.fire({
+      title: "Missing Information",
+      text: "Please provide all details before generating the bill.",
+      icon: "error",
+    });
+    return;
   }
+
+  this.showBill = true; // Display the bill component
+}
+
 
 }

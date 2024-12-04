@@ -1,5 +1,5 @@
 <body class="background">
-    <div class="manage-book-container">
+    <div class="manage-rental-container">
       <h2>Manage Rentals</h2>
       
       <div class="search">
@@ -7,8 +7,8 @@
         placeholder="Search By Id..."
         type="text"
         [(ngModel)]="searchQuery"
-        (keyup.enter)="searchBook(searchQuery)" />
-          <button type="submit" (click)="searchBook(searchQuery)">Search</button>
+        (keyup.enter)="searchRental(searchQuery)" />
+          <button type="submit" (click)="searchRental(searchQuery)">Search</button>
         </div>
       
   
@@ -38,10 +38,10 @@
             <td>{{ rental.itemId }}</td>
             <td>{{ rental.itemName }}</td>
             <td>
-              <button (click)="deleteBook(rental.rentId)" class="delete-button">Delete</button>
+              <button (click)="deleteRental(rental.rentId)" class="delete-button">Delete</button>
             </td>
             <td>
-              <button (click)="updateBook(rental)" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+              <button (click)="updateRental(rental)" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
             </td>
           </tr>
         </tbody>
@@ -74,7 +74,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="saveBook()" data-bs-dismiss="modal">Update</button>
+          <button type="button" class="btn btn-primary" (click)="saveRental()" data-bs-dismiss="modal">Update</button>
         </div>
       </div>
     </div>

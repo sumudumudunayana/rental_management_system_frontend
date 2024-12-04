@@ -1,13 +1,11 @@
 <body class="background">
-    <div class="add-book-container">
+    <div class="add-item-container">
       <h2>Add a New Item</h2>
       <form #bookForm="ngForm">
         <div class="form-group">
-          <label for="title">Item Name</label>
+          <label for="name">Item Name</label>
           <input
             type="text"
-            id="bookName"
-            name="bookName"
             [(ngModel)]="item.itemName"
             required
             placeholder="Enter item name"
@@ -15,11 +13,9 @@
         </div>
   
         <div class="form-group">
-          <label for="category">Availability</label>
+          <label for="availability">Availability</label>
           <input
             type="text"
-            id="bookCategory"
-            name="bookCategory"
             [(ngModel)]="item.availability"
             required
             placeholder="Enter availability"
@@ -27,11 +23,9 @@
         </div>
   
         <div class="form-group">
-          <label for="author">Fine per day</label>
+          <label for="fine">Fine per day</label>
           <input
             type="text"
-            id="bookAuthor"
-            name="bookAuthor"
             [(ngModel)]="item.finePerDay"
             required
             placeholder="Enter fine per day"
@@ -39,11 +33,9 @@
         </div>
 
         <div class="form-group">
-            <label for="author">Rental per day</label>
+            <label for="rental">Rental per day</label>
             <input
               type="text"
-              id="bookAuthor"
-              name="bookAuthor"
               [(ngModel)]="item.rentalPerDay"
               required
               placeholder="Enter rental per day"

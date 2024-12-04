@@ -1,13 +1,11 @@
 <body class="background">
-    <div class="add-book-container">
+    <div class="add-rental-container">
       <h2>Add a New Rental</h2>
       <form #bookForm="ngForm">
         <div class="form-group">
           <label for="title">Rental Date</label>
           <input
             type="date"
-            id="bookName"
-            name="bookName"
             [(ngModel)]="rental.rentalDate"
             required
             placeholder="Enter item name"
@@ -18,8 +16,6 @@
           <label for="category">Return Date</label>
           <input
             type="date"
-            id="bookCategory"
-            name="bookCategory"
             [(ngModel)]="rental.returnDate"
             required
             placeholder="Enter return date"
@@ -30,8 +26,6 @@
           <label for="author">Due Date</label>
           <input
             type="date"
-            id="bookAuthor"
-            name="bookAuthor"
             [(ngModel)]="rental.dueDate"
             required
             placeholder="Enter due date"
@@ -42,8 +36,6 @@
             <label for="author">Total cost</label>
             <input
               type="text"
-              id="bookAuthor"
-              name="bookAuthor"
               [(ngModel)]="rental.totalCost"
               required
               placeholder="Enter total cost"

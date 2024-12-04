@@ -28,7 +28,7 @@ export class ManageRentalPageComponent {
     })
   }
 
-  deleteBook(rentId: number) {
+  deleteRental(rentId: number) {
     this.http.delete(`http://localhost:8080/rental/delete-by-id/${rentId}`).subscribe(data => {
       this.deleteSuccessAlert();
       this.loadTable();
@@ -36,19 +36,19 @@ export class ManageRentalPageComponent {
   }
 
   public rentalTemp:any = {}
-  updateBook(rental:any) {
+  updateRental(rental:any) {
     console.log(rental);
     this.rentalTemp = rental;
   }
 
-  saveBook(){
+  saveRental(){
     this.http.put("http://localhost:8080/rental/update-rental",this.rentalTemp).subscribe(data => {
       this.updateSuccessAlert();
       this.loadTable();
     })
   }
 
-  searchBook(searchQuery: string) {
+  searchRental(searchQuery: string) {
     if (!searchQuery || searchQuery.trim() === '') {
       this.loadTable();
       return;
