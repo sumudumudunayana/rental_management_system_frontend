@@ -1,1 +1,72 @@
-<p>manage-customer-page works!</p>
+<body class="background">
+    <div class="manage-book-container">
+      <h2>Manage Books</h2>
+      
+      <div class="search">
+        <input
+        placeholder="Search By Id..."
+        type="text"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="searchBook(searchQuery)" />
+          <button type="submit" (click)="searchBook(searchQuery)">Go</button>
+        </div>
+      
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Contact</th>
+            <th>Delete</th>
+             <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customerList; index as i">
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.customerName }}</td>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.contact }}</td>
+            <td>
+              <button (click)="deleteBook(customer.bookId)" class="delete-button">Delete</button>
+            </td>
+            <td>
+              <button (click)="updateBook(customer)" class="update-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update customer</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name :</label>
+              <input type="text" class="form-control" [(ngModel)]="customerTemp.customerName"  id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">City:</label>
+              <input type="text" class="form-control" [(ngModel)]="customerTemp.city" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Contact No:</label>
+              <input type="text" class="form-control" [(ngModel)]="customerTemp.contact"  id="recipient-name">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveBook()" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </body>
+  
